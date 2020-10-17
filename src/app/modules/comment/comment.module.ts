@@ -6,13 +6,15 @@ import {HttpClientModule} from '@angular/common/http';
 import { CommentComponent } from './component/comment/comment.component';
 import { AllCommentsComponent } from './component/all-comments/all-comments.component';
 import { CommentService } from './services';
+import { ShareModule } from 'src/app/share/share.module';
 
 @NgModule({
   declarations: [CommentComponent, AllCommentsComponent],
   imports: [
     CommonModule,
     CommentRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ShareModule
   ],
   providers: [CommentService]
 })

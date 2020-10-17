@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ShareModule } from 'src/app/share/share.module';
 
 import { UserRoutingModule } from './user-routing.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -12,8 +13,10 @@ import { UserService } from './services';
   imports: [
     CommonModule,
     UserRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ShareModule
   ],
+  exports: [AllUsersComponent],
   providers: [UserService]
 })
 export class UserModule { }

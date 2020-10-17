@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IComment } from './../../interface/comment.interface';
+import { CommentService } from './../../services/comment.service';
 
 @Component({
   selector: 'app-all-comments',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllCommentsComponent implements OnInit {
 
-  constructor() { }
+  comments: IComment[];
+
+  constructor(private commentService: CommentService) { }
 
   ngOnInit(): void {
+    this.commentService.getAllComments().subscribe(value => this.comments = value);
   }
 
 }

@@ -1,5 +1,6 @@
 import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { SubjectService } from 'src/app/services/subject.service';
 import { IUser } from './../../interface/user.interface';
 
 @Component({
@@ -12,9 +13,13 @@ export class UserComponent implements OnInit {
   @Input()
   user: IUser;
 
-  constructor() { }
+  constructor(private subjectService: SubjectService) { }
 
   ngOnInit(): void {
+  }
+
+  save(user: IUser): void {
+    this.subjectService.setUser(user);
   }
 
 }

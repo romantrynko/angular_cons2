@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { SubjectService } from 'src/app/services/subject.service';
+import { IPost } from './../../interface/post.interface';
 
 @Component({
   selector: 'app-post',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  post: IPost;
+
+  constructor(private subjectService: SubjectService) { }
 
   ngOnInit(): void {
+  }
+
+  save(post: IPost): void {
+    this.subjectService.setPost(post);
   }
 
 }
